@@ -37,7 +37,7 @@ exports.s3_signed_download = async function (options) {
     let endpoint = `https://s3.${region}.amazonaws.com`;
     const forcePathStyle = this.parseOptional(options.forcePathStyle, 'boolean', false);
     let config = { endpoint: endpoint, credentials: { accessKeyId, secretAccessKey }, region, signatureVersion: 'v4', forcePathStyle: forcePathStyle };
-    if (Provider === "custom", options.endpoint != "" && options.endpoint != "undefined") {
+    if (Provider === "custom" && options.endpoint != "" && options.endpoint != "undefined") {
         config.endpoint = options.endpoint;
     }
     const s3 = await getS3Object(options, this);
